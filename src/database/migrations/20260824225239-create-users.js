@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('users', {
       id : {
         allowNull : false,
         autoIncrement : true,
@@ -31,11 +31,11 @@ module.exports = {
         type : Sequelize.STRING
       },
       password_hash : {
-        allowNull : null,
+        allowNull : false,
         type : Sequelize.STRING
       },
        bio : {
-         allowNull : null,
+         allowNull :  false,
         type : Sequelize.STRING
       },
       created_at : {
@@ -47,7 +47,7 @@ module.exports = {
         type : Sequelize.DATE
       },
       gender : {
-          allowNull : null,
+          allowNull : false,
         type : Sequelize.STRING
       }
     });
