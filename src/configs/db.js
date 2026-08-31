@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log(process.env.DIALECT);
+
 
 module.exports = {
 

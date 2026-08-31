@@ -20,11 +20,11 @@ class UserController {
 
         const user = await Users.create(req.body);
 
-        if(!user){
-           return  res.status(400).json({message : 'error'})
+        if (!user) {
+            return res.status(400).json({ message: 'error' })
         }
 
-       return  res.status(201).send({ user: user });
+        return res.status(201).send({ user: user });
     };
 
 
