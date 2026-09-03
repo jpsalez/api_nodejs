@@ -5,12 +5,12 @@
     "properties": {
         "user_name": { "type": "string" },
         "email": { "type": "string", "format": "email"},
-        "password": { "type": "string", "minLength": 6 }
+        "password": { "type": "string"}
     },
     "required": [
         "password"
     ],
-    "oneOf": [
+    "anyOf": [
         {"required": ["email"]},
          {"required": ["user_name"]}
     ],

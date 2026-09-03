@@ -19,7 +19,7 @@ class AuthController {
 
         if (!user) return res.status(401).json({ error: 'check your email or password' });
 
-        if (!user.checkPassword(password)) return res.status(401).json({ error: 'check your email or password' });
+        if (!( await user.checkPassword(password))) return res.status(401).json({ error: 'check your email or password' });
 
 
         const { id, user_name : userName } = user;
