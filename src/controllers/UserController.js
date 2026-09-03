@@ -1,19 +1,21 @@
 const UserModel = require('../models/userModel');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const { Op } = require('sequelize');
 
 
 class UserController {
 
     async create(req, res) {
 
-
         try {
-            const { email, password, user_name, name } = req.body;
+            const { email, user_name } = req.body;
+
 
             const userExist = await UserModel.findOne({
                 where: {
-                    email: email
+                    [Op.or]: [
+                        { email },
+                        { user_name }
+                    ]
                 }
             });
 
@@ -28,9 +30,9 @@ class UserController {
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
-
-
     }
+
+
 
 
 }
