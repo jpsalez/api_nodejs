@@ -2,8 +2,15 @@
   "name": "curso_node",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/jpsalez/learning_nodejs#readme",
+  "bugs": {
+    "url": "https://github.com/jpsalez/learning_nodejs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpsalez/learning_nodejs.git"
+  },
   "license": "ISC",
-  "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
@@ -13,6 +20,8 @@
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "json-schema": "^0.4.0",
+    "jsonschema": "^1.5.0",
     "pg": "^8.23.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.8"
