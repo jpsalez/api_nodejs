@@ -1,7 +1,7 @@
 const UserModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
-
+const {encrypt} = require('../utils/crypto');
 
 class AuthController {
     async authenticate(req, res) {
@@ -21,10 +21,12 @@ class AuthController {
 
         if (!( await user.checkPassword(password))) return res.status(401).json({ error: 'check your email or password' });
 
-
+        
         const { id, user_name : userName } = user;
 
-        const token = jwt.sign({ id }, process.env.TOKEN, {
+        const newId = encrypt(id);
+
+        const token = jwt.sign({ newId }, process.env.TOKEN, {
             expiresIn: '1h'
         });
 
